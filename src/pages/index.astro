@@ -1,0 +1,135 @@
+---
+import MainLayout from "../layouts/MainLayout.astro";
+import Navbar from "../components/Navbar.astro";
+import Hero from "../components/Hero.astro";
+import SkillCard from "../components/SkillCard.astro";
+import ProjectCard from "../components/ProjectCard.astro";
+import ExperienceCard from "../components/ExperienceCard.astro";
+import ContactCard from "../components/ContactCard.astro";
+import Footer from "../components/Footer.astro";
+import SectionTitle from "../components/SectionTitle.astro";
+
+const skills = [
+  {
+    title: "ICT Support",
+    items: ["Troubleshooting", "OS Installation", "Printer Sharing", "User Support"],
+  },
+  {
+    title: "Networking",
+    items: ["LAN", "TCP/IP", "DNS", "DHCP", "Router Configuration", "Switch Configuration"],
+  },
+  {
+    title: "Cybersecurity",
+    items: ["Nmap", "Wireshark", "Kali Linux", "Metasploit", "PicoCTF"],
+  },
+  {
+    title: "Development",
+    items: ["Python", "SQL", "Django", "HTML", "CSS", "GitHub"],
+  },
+];
+
+const projects = [
+  {
+    title: "Blood Donation Management System",
+    description:
+      "A Django and SQL-based system for managing blood availability, donor registration, and donor-to-client matching.",
+    tech: ["Django", "Python", "SQL"],
+  },
+  {
+    title: "Grade Calculator & Report Generation System",
+    description:
+      "A Python and Excel automation tool for simplifying student grading and report generation.",
+    tech: ["Python", "Excel", "Automation"],
+  },
+];
+
+const experiences = [
+  {
+    role: "Teacher / ICT Coordinator",
+    company: "Ghana Education Service",
+    period: "2020 – Present",
+    bullets: [
+      "Managed digital records for approximately 80 students annually.",
+      "Automated grade calculation and report generation using Python and Excel.",
+      "Configured computer networks, shared printers, and installed operating systems.",
+      "Provided ICT support and trained teachers on digital tools.",
+    ],
+  },
+  {
+    role: "Data Entry Intern",
+    company: "Akatsi District Hospital",
+    period: "2023 – 2024",
+    bullets: [
+      "Collected, cleaned, and validated healthcare data.",
+      "Maintained confidential patient records.",
+      "Supported secure data handling and reporting processes.",
+    ],
+  },
+];
+---
+
+<MainLayout title="Etornam Ligih | ICT Support & Cybersecurity">
+  <Navbar />
+  <Hero />
+
+  <section id="about" class="mx-auto max-w-6xl px-6 py-20">
+    <SectionTitle title="About Me" subtitle="ICT support, cybersecurity, and problem solving." />
+
+    <p class="mx-auto max-w-3xl text-center text-lg leading-8 text-slate-300">
+      I am an entry-level ICT Support and Cybersecurity professional with experience
+      in digital records management, technical support, network configuration,
+      Python automation, and secure data handling.
+    </p>
+  </section>
+
+  <section id="skills" class="mx-auto max-w-6xl px-6 py-20">
+    <SectionTitle title="Technical Skills" subtitle="Tools and technologies I use." />
+
+    <div class="grid gap-6 md:grid-cols-2">
+      {skills.map((skill) => (
+        <SkillCard title={skill.title} items={skill.items} />
+      ))}
+    </div>
+  </section>
+
+  <section id="projects" class="mx-auto max-w-6xl px-6 py-20">
+    <SectionTitle title="Projects" subtitle="Selected technical and academic work." />
+
+    <div class="grid gap-6 md:grid-cols-2">
+      {projects.map((project) => (
+        <ProjectCard
+          title={project.title}
+          description={project.description}
+          tech={project.tech}
+        />
+      ))}
+    </div>
+  </section>
+
+  <section id="experience" class="mx-auto max-w-6xl px-6 py-20">
+    <SectionTitle title="Experience" subtitle="Professional and technical experience." />
+
+    <div class="space-y-6">
+      {experiences.map((experience) => (
+        <ExperienceCard
+          role={experience.role}
+          company={experience.company}
+          period={experience.period}
+          bullets={experience.bullets}
+        />
+      ))}
+    </div>
+  </section>
+
+  <section id="contact" class="mx-auto max-w-6xl px-6 py-20">
+    <SectionTitle title="Contact" subtitle="Let’s connect." />
+
+    <div class="grid gap-6 md:grid-cols-3">
+      <ContactCard label="Email" value="ltornam@gmail.com" href="mailto:ltornam@gmail.com" />
+      <ContactCard label="GitHub" value="github.com/etor2528" href="https://github.com/etor2528" />
+      <ContactCard label="LinkedIn" value="Etornam Ligih" href="https://www.linkedin.com/in/etornam-ligih" />
+    </div>
+  </section>
+
+  <Footer />
+</MainLayout>
