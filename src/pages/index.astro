@@ -8,6 +8,9 @@ import ExperienceCard from "../components/ExperienceCard.astro";
 import ContactCard from "../components/ContactCard.astro";
 import Footer from "../components/Footer.astro";
 import SectionTitle from "../components/SectionTitle.astro";
+import CertificateCard from "../components/CertificateCard.astro";
+
+import { certificates } from "../data/certificates";
 
 const skills = [
   {
@@ -130,6 +133,26 @@ const experiences = [
       <ContactCard label="LinkedIn" value="Etornam Ligih" href="https://www.linkedin.com/in/etornam-ligih" />
     </div>
   </section>
+
+  <section
+  id="certificates"
+  class="mx-auto max-w-7xl px-6 py-24"
+>
+  <SectionTitle
+    title="Certificates"
+    subtitle="Professional certifications and continuous learning."
+  />
+
+  <div class="mt-12 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+
+    {
+      certificates.map((certificate) => (
+        <CertificateCard {...certificate} />
+      ))
+    }
+
+  </div>
+</section>
 
   <Footer />
 </MainLayout>
